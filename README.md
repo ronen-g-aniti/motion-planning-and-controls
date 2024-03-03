@@ -44,11 +44,11 @@ Having finished my initial observations on the drone’s mission environment’s
 
 That process of establishing definitions began with my formulation of what comprised the drone’s mission environment. Since the path planning module I was to develop was required to ultimately produce an XYZ waypoint sequence, I decided to define the mission environment E as the set of all points in three-dimensional Euclidean space bounded by, in each coordinate direction, the maximum and minimum positions of all obstacles provided with the Udacity obstacle mapping data file.
 
-
+![Equation 1](./figures_upload/eq1.png)  
 
 My next idea was to provide a way to categorize all of the locations in the mission environment representation, E, as being either obstacle or non-obstacle since the drone’s mission will fail if the drone collides with any position in the environment that is occupied by an obstacle. Due to the fact that the obstacle data provided by Udacity were structured such that obstacles are discretized as 3D boxes, each defined by one XYZ center position and one half-width along each of the three coordinate directions, I made the initial decision to describe each obstacle partition as comprising all of the points it bounds.
 
-
+![Equation 1](./figures_upload/eq2.png)  
 
 However, a further consideration led me to make a slight adjustment to this representation. Under the rule of what was my current representation of obstacle subvolumes, there was the certitude that some locations belonging to E but not carrying the label as being within the boundaries of any obstacle partition would still, if occupied by the flying robot, be sites for collision, the reason being that the autonomous quadrotor itself is, in actuality, not a point object but rather an object with a finite and nonzero size–a nonzero height, a nonzero width, and a nonzero length. Also, the reason I was, in the first place, taking care to mathematically and explicitly define a representation for obstacle partitions was my presumption that a path planning program that works properly must have a way of accessing a model of locations that would cause a collision to occur in the circumstance of being occupied by the autonomous quadcopter. So, as reconciliation, what I decided to do was expand the representation for each obstacle partition by some safety margin, s, applied uniformly in each of the three coordinate directions. 
 
