@@ -60,9 +60,9 @@ And, at that point, I had framed the problem in such a way that I could refer co
 
 ![Equation 4](./figures_upload/eq4.gif)  
 
-Furthermore, from this description of no-fly locations, I derived a way of expressing the set of all safe-to-fly locations, free space, F, establishing that F is the set of all locations included in E but not included in Os. 
+Furthermore, from this description of no-fly locations, I derived a way of expressing the set of all safe-to-fly locations, free space, F, establishing that F is the set of all locations included in _E_ but not included in _Os_. 
 
-
+![Equation 5](./figures_upload/eq5.gif)  
 
 What this careful setting up of definitions allowed me to do was refine the problem statement’s general notion of determining collision-free paths to the more specific notion of determining sequences of locations in three-dimensional space leading from some start position, S, belonging to free space, F, to some goal position, G, also belonging to free space, F, where every intermediate point in the sequence connecting S to G also belongs to F, and thus does not belong to Os, the set of all obstacle-bounded points and all points deemed unsafe due to being in close proximity to the boundaries of obstacles.
 
@@ -74,23 +74,23 @@ The first of the four fundamental principles involves safety: all else held equa
 
 A path, P, is, when returned from a path planning algorithm I am to implement, structured as an ordered list of N points belonging to free space, F, so, as such, each element of the path is an ordered triplet representing a spatial position in R3 not enclosed within the bounding box of any obstacle partition nor enclosed within the region of safety margin around an obstacle subvolume.
 
-
+![Equation 6](./figures_upload/eq6.gif)  
 
 Each obstacle subvolume can be characterized by its ground position coordinates and the vertical distance between ground level and the subvolume’s top face, where that distance is also adjusted by the safety margin distance. I can organize these three measurements, horizontal position in space, vertical position in space, and height, as a three-tuple and then organize each of those three-tuples into a set I create to aid in computation, a set which I refer to as Oxy.
 
-
+![Equation 7](./figures_upload/eq7.gif)  
 
 With a set defined to keep obstacle ground position and height information organized, I can, also, from that original set, create a derived set that contains only the ground position and height information of obstacles that have adjusted heights above any arbitrary altitude of interest, zcurrent. I leverage this idea in what I state next.
 	
-	
+![Equation 8](./figures_upload/eq8.gif)  	
 
 For all points along path P, there exists an obstacle partition from the derived set O’xy that is positioned closer, in terms of ground distance, to that path point than to any other obstacle partition’s center. When I refer to the derived set O’xy. What I mean by ground distance is the length of the displacement vector that originates from a given path point to the position of the nearest obstacle’s center point, but having that vector being projected onto the XY plane. Also, the derived set O’xy is recomputed for each point using zcurrent = zi, where zi represents the altitude of the ith point of the waypoint sequence.
 
 
-
+![Equation 9](./figures_upload/eq9.gif)  
 The distance between each point of P and each point’s nearest obstacle center position is averaged. The resulting metric, which I denote D, serves as a reasonable measure of a given path’s overall conformance to the principle that paths that maintain more distance from obstacles are, on balance, safer than paths that maintain less distance from obstacles, the reason being that the mathematical notion of averaging is a way of stating the central tendency of a measurement that is taken multiple times.
 
-	
+![Equation 10](./figures_upload/eq10.gif)  	
 
 The second principle suggested by the Udacity coursework on aerial robotics motion planning involves the merit of shortest-distance paths. The way I state the principle is as follows: When two paths, both having start locations that are identical to one another and goal locations that are identical to one another, and both also being identical in all other respects except for the respect that the total distance of each path differs by some amount, the path having the shorter distance is more desirable. Also mentioned in the coursework on path planning for flying robots is the guarantee that, for any start-goal pairing between which a path exists, a shortest-distance path will also both exist and will be able to be found using certain pathfinding algorithms well-established in the field of computer science that operate on mathematical representations called graph structures, comprising nodes and edges connecting nodes, where the nodes, in the case of quadcopter path planning, are representing locations from the drone’s physical environment and the edges are representing valid modes of navigation from one location to another. What I do to develop a measurable performance criterion to indicate how well a given path conforms to the shortest-distance principle emphasized in the Udacity coursework is develop a mathematical expression that directly compares this shortest-possible path length (Lo) to the actual measure of path length (L)–where path length itself is the summed Euclidean distance of each pair of consecutive points. The closer this ratio is to zero, the better, since the quantity L – Lo represents how much longer a given path is compared to what is shortest-possible.
 
