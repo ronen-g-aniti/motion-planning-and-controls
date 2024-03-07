@@ -1,5 +1,5 @@
 # Important Note to My Reader
-I am currently working on documenting this motion planning and controls project in detail. So far, I have 20 pages of draft. I have over 60 pages of outlined material that still need to be synthesized into detail documentation. So that's something I'm working on right now. But this is also an incredibly time consuming task. Nevertheless, I do suggest that those interested in what I've worked on for this project read or skim what I have down so far by following this link. https://shorturl.at/mtLQZ. It'll be easier than reading the draft material here on GitHub due to formatting issues and constraints.  
+I am currently working on documenting this motion planning and controls project in detail. So far, I have 20 pages of draft. I have over 60 pages of outlined material that still need to be synthesized into detailed documentation. So that's something I'm working on right now. But this is also an incredibly time consuming task. Nevertheless, I do suggest that those interested in what I've worked on for this project read or skim what I have down so far by following this link. https://shorturl.at/mtLQZ. It'll be easier than reading the draft material here on GitHub due to formatting issues and constraints.  
 
 
 # A Self-Guided Exploration of Some of the Motion Planning and Control Algorithms Used for Autonomous Quadcopter Flight
