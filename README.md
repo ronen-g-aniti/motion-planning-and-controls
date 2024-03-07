@@ -1,3 +1,7 @@
+# Important Note to My Reader
+I am currently working on documenting this motion planning and controls project in detail. So far, I have 20 pages of draft. I have over 60 pages of outlined material that still need to be synthesized into detail documentation. So that's something I'm working on right now. But this is also an incredibly time consuming task. Nevertheless, I do suggest that those interested in what I've worked on for this project read or skim what I have down so far by following this link. https://shorturl.at/mtLQZ. It'll be easier than reading the draft material here on GitHub due to formatting issues and constraints.  
+
+
 # A Self-Guided Exploration of Some of the Motion Planning and Control Algorithms Used for Autonomous Quadcopter Flight
 ## The Preface 
 My name is Ronen Aniti, and I am a college graduate with a Bachelor’s degree in mechanical engineering from The University of Texas at Austin’s Cockrell School of Engineering. I graduated from that degree program in December of 2016. After graduating, I became a professional private tutor, founding a business called Ronen Redefines Tutoring, through which I have not only helped over 200 students prepare for standardized tests and college entrance but also deepened my interest in logical reasoning and mathematics. For the past two years, I have been considering transitioning careers to become an engineer or a scientist. I want to put my skills on display, so I am taking it upon myself to prove them with a project. That’s what this report will be about. 
