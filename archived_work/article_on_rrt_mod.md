@@ -12,7 +12,7 @@ The realm of autonomous navigation presents significant challenges, particularly
 
 ### State Representation and Steering Mechanism
 
-Central to our algorithm is a refined state representation, defined as $\mathbf{S} = [x, y, z, \theta_x, \theta_y, \theta_z]$, incorporating both position $(x, y, z)$ and orientation $(\theta_x, \theta_y, \theta_z)$ components. This comprehensive representation is crucial for three-dimensional navigation, enabling rotational movement about multiple axes. The steering mechanism, inspired by Rodrigues' rotation formula, adeptly recalculates orientations to ensure smooth and precise directional control.
+Central to our algorithm is a refined state representation, defined as $\mathbf{S} = (x, y, z, \theta_x, \theta_y, \theta_z)$, incorporating both position $(x, y, z)$ and orientation $(\theta_x, \theta_y, \theta_z)$ components. This comprehensive representation is crucial for three-dimensional navigation, enabling rotational movement about multiple axes. The steering mechanism, inspired by Rodrigues' rotation formula, adeptly recalculates orientations to ensure smooth and precise directional control.
 
 Rodrigues' rotation formula is articulated as:
 $$
@@ -21,6 +21,7 @@ $$
 where $\mathbf{R}$ signifies the rotation matrix, $\mathbf{I}$ the identity matrix, $\phi$ the rotation angle, and $\mathbf{K}$ the skew-symmetric matrix derived from the axis of rotation.
 
 The skew-symmetric matrix $\mathbf{K}$, essential for defining the rotation axis, is given by:
+
 $$
 \mathbf{K} = \begin{bmatrix}
 0 & -\theta_z & \theta_y \\
@@ -31,7 +32,7 @@ $$
 
 ### Forward Integration Process
 
-The forward integration step, vital for state transitions, meticulously applies velocity $(v)$ and time step $(\Delta t)$ to the newly determined orientation. This process, emphasizing the algorithm's nuanced advancement towards the goal, illustrates strict adherence to motion parameters and dynamic constraints.
+The forward integration step, vital for state transitions, meticulously applies velocity $v$ and time step $\Delta t$ to the newly determined orientation. This process, emphasizing the algorithm's nuanced advancement towards the goal, illustrates strict adherence to motion parameters and dynamic constraints.
 
 ## Collision Detection Logic
 
