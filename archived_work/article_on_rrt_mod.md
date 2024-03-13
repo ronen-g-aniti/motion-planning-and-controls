@@ -15,9 +15,11 @@ The realm of autonomous navigation presents significant challenges, particularly
 Central to our algorithm is a refined state representation, defined as $\mathbf{S} = (x, y, z, \theta_x, \theta_y, \theta_z)$, incorporating both position $(x, y, z)$ and orientation $(\theta_x, \theta_y, \theta_z)$ components. This comprehensive representation is crucial for three-dimensional navigation, enabling rotational movement about multiple axes. The steering mechanism, inspired by Rodrigues' rotation formula, adeptly recalculates orientations to ensure smooth and precise directional control.
 
 Rodrigues' rotation formula is articulated as:
+
 $$
 \mathbf{R} = \mathbf{I} + \sin(\phi)\mathbf{K} + (1 - \cos(\phi))\mathbf{K^2}
 $$
+
 where $\mathbf{R}$ signifies the rotation matrix, $\mathbf{I}$ the identity matrix, $\phi$ the rotation angle, and $\mathbf{K}$ the skew-symmetric matrix derived from the axis of rotation.
 
 The skew-symmetric matrix $\mathbf{K}$, essential for defining the rotation axis, is given by:
