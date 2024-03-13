@@ -61,6 +61,7 @@ Algorithm Enhanced RRT
     2.4: Integrate forward to S_new applying v and Δt: S_new = S_near + vΔtθ_new
     2.5: If S_new is valid (non-colliding and within bounds), add S_new to the tree
 3: If goal is reached within tolerance, reconstruct path from S0 to goal
+```
 
 ## Conclusion
 This article has detailed the development of an advanced RRT algorithm, accentuating its mathematical underpinnings and algorithmic sophistication. The incorporation of Rodrigues' rotation formula within the steering mechanism, combined with a comprehensive state representation and robust collision detection logic, highlights the algorithm's capability
