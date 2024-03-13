@@ -1,26 +1,26 @@
-
 # Enhancing Autonomous Navigation with an Advanced RRT Algorithm
 
 ## Introduction
 
-In the realm of autonomous navigation, the challenge of efficiently and safely planning a path in complex environments is paramount. The project I undertook, involving the development of an enhanced Rapidly-exploring Random Tree (RRT) algorithm with a novel steering function, stands as a testament to the application of mechanical engineering principles, mathematical rigor, and innovative algorithm design. This endeavor not only showcases my capability to innovate within the field of autonomous navigation but also integrates sophisticated collision detection logic to ensure path feasibility and safety.
+The realm of autonomous navigation presents significant challenges, particularly in efficiently and safely planning paths within complex environments. The project I embarked upon, developing an enhanced Rapidly-exploring Random Tree (RRT) algorithm with an innovative steering function, is a testament to the integration of mechanical engineering principles, mathematical rigor, and innovative algorithm design. This endeavor not only showcases my ability to innovate within the field of autonomous navigation but also incorporates sophisticated collision detection logic to ensure path feasibility and safety.
 
 ![RRT Steering](rrt_steering.png)
 
-**Figure 1.** This figure depicts a representative plot showcasing the results of the enhanced Rapidly-exploring Random Tree (RRT) algorithm with the 3D steering function. This visualization encapsulates the algorithm's afficiency in navigating complex environments while ensuring path feasibility and safety.
+**Figure 1.** A representative plot showcasing the results of the enhanced RRT algorithm with the 3D steering function, demonstrating the algorithm's efficiency in navigating complex environments and ensuring path feasibility and safety.
 
 ## Core Algorithm Components
 
 ### State Representation and Steering Mechanism
 
-At the heart of our algorithm is a refined state representation, incorporating both position $(x, y, z)$ and orientation $(	\theta_x, 	\theta_y, 	\theta_z)$ components. The orientation is crucial for navigating through three-dimensional spaces, allowing for rotational movement about multiple axes. The steering function, drawing inspiration from Rodrigues' rotation formula, adeptly calculates new orientations, facilitating smooth and precise directional control.
+Central to our algorithm is a refined state representation, defined as $\mathbf{S} = [x, y, z, \theta_x, \theta_y, \theta_z]$, incorporating both position $(x, y, z)$ and orientation $(\theta_x, \theta_y, \theta_z)$ components. This comprehensive representation is crucial for three-dimensional navigation, enabling rotational movement about multiple axes. The steering mechanism, inspired by Rodrigues' rotation formula, adeptly recalculates orientations to ensure smooth and precise directional control.
 
-The Rodrigues' rotation formula is defined as:
-$\mathbf{R} = \mathbf{I} + \sin(\phi)\mathbf{K} + (1 - \cos(\phi))\mathbf{K^2}$
-where $\mathbf{R}$ is the rotation matrix, $\mathbf{I}$ is the identity matrix, $\mathbf{\phi}$ is the angle of rotation, and $\mathbf{K}$ is the skew-symmetric matrix formed from the axis of rotation.
+Rodrigues' rotation formula is articulated as:
+$$
+\mathbf{R} = \mathbf{I} + \sin(\phi)\mathbf{K} + (1 - \cos(\phi))\mathbf{K^2}
+$$
+where $\mathbf{R}$ signifies the rotation matrix, $\mathbf{I}$ the identity matrix, $\phi$ the rotation angle, and $\mathbf{K}$ the skew-symmetric matrix derived from the axis of rotation.
 
-The skew-symmetric matrix $\mathbf{K}$ can be expressed as:
-
+The skew-symmetric matrix $\mathbf{K}$, essential for defining the rotation axis, is given by:
 $$
 \mathbf{K} = \begin{bmatrix}
 0 & -\theta_z & \theta_y \\
@@ -31,39 +31,36 @@ $$
 
 ### Forward Integration Process
 
-The algorithm's forward integration step is key to transitioning between states. It meticulously applies velocity \((v)\) and time step \((\Delta t)\) to the new orientation determined by the steering mechanism. This process exemplifies the algorithm's nuanced approach to advancing towards the goal, highlighting its adherence to motion parameters and dynamic constraints.
+The forward integration step, vital for state transitions, meticulously applies velocity $(v)$ and time step $(\Delta t)$ to the newly determined orientation. This process, emphasizing the algorithm's nuanced advancement towards the goal, illustrates strict adherence to motion parameters and dynamic constraints.
 
 ## Collision Detection Logic
 
-A suite of functions underpins the collision detection logic, ensuring paths avoid obstacles and remain within environmental bounds. This multi-faceted approach underscores the algorithm's robustness and reliability.
+The algorithm employs a multifaceted approach to collision detection, ensuring paths remain clear of obstacles and within environmental bounds. This robustness is achieved through:
 
 ### Optimized Collision Checks
 
-The `collision_check_vectorized` function showcases the algorithm's computational efficiency, using numpy's capabilities to quickly assess potential collisions. This method exemplifies the emphasis on performance without compromising accuracy.
+The `collision_check_vectorized` function underscores the algorithm's efficiency by utilizing numpy's capabilities for rapid potential collision assessments, balancing performance with accuracy.
 
 ### Spatial and Environmental Constraints
 
-Checks for spatial and environmental boundaries are crucial, ensuring paths remain viable within the defined parameters. Functions like `inside_environment` play a pivotal role in reinforcing the algorithm's feasibility for real-world applications.
+Functions like `inside_environment` confirm path viability within specified spatial parameters, highlighting the algorithm's real-world applicability.
 
 ### Comprehensive Path Segment Evaluation
 
-The meticulous evaluation of path segments through the `collision_check_two_points` function highlights the algorithm's thoroughness. This approach ensures every step towards the goal is assessed for viability and safety, illustrating the depth of the algorithm's navigational logic.
+The `collision_check_two_points` function exemplifies the algorithm's meticulousness in assessing path segment viability, ensuring each step towards the goal is safe and feasible.
 
-## Pseudocode of the RRT Algorithm
+## Pseudocode of the RRT Algorithm with Mathematical Expressions
 
 ```plaintext
 Algorithm Enhanced RRT
-1. Initialize tree with start state
-2. for i = 1 to MAX_ITERATIONS do
-    a. Sample random point, with bias towards the goal
-    b. Find nearest state in tree to the sampled point
-    c. Steer from nearest state towards sampled point, employing:
-        i. Rodrigues' rotation to calculate new orientation
-        ii. Forward integration based on new orientation and predefined speed
-    d. Add the new state to the tree if it's valid (non-colliding and within environment bounds)
-3. Construct path back to start if goal reached within a tolerance threshold
-```
+1: Initialize tree with start state S0 = [x0, y0, z0, θx0, θy0, θz0]
+2: for i = 1 to MAX_ITERATIONS do
+    2.1: Sample random point P with bias towards the goal, P = [xp, yp, zp]
+    2.2: Find nearest state S_near in tree to P, S_near = [xn, yn, zn, θxn, θyn, θzn]
+    2.3: Calculate new orientation θ_new using Rodrigues' rotation: θ_new = R(θ_near, P - S_near)
+    2.4: Integrate forward to S_new applying v and Δt: S_new = S_near + vΔtθ_new
+    2.5: If S_new is valid (non-colliding and within bounds), add S_new to the tree
+3: If goal is reached within tolerance, reconstruct path from S0 to goal
 
 ## Conclusion
-
-This detailed exposition of an advanced RRT algorithm, enriched with a novel steering function and integrated collision detection mechanisms, illuminates my project's contribution to the field of autonomous navigation. It demonstrates not only a mastery of technical skills and innovative thinking but also the potential for significant advancements in mechanical engineering and robotics. The algorithm's adept navigation through complex three-dimensional environments underscores a commitment to precision, safety, and efficiency, offering a compelling narrative of innovation to potential hiring managers in the engineering domain.
+This article has detailed the development of an advanced RRT algorithm, accentuating its mathematical underpinnings and algorithmic sophistication. The incorporation of Rodrigues' rotation formula within the steering mechanism, combined with a comprehensive state representation and robust collision detection logic, highlights the algorithm's capability
