@@ -13,7 +13,10 @@ At the heart of our algorithm is a refined state representation, incorporating b
 
 The Rodrigues' rotation formula is defined as:
 $\mathbf{R} = \mathbf{I} + \sin(\phi)\mathbf{K} + (1 - \cos(\phi))\mathbf{K^2}$
-where $\mathbf{R}$ is the rotation matrix, $\mathbf{I}$ is the identity matrix, $\mathbg{\phi}$ is the angle of rotation, and $\mathbf{K}$ is the skew-symmetric matrix formed from the axis of rotation, given by 
+where $\mathbf{R}$ is the rotation matrix, $\mathbf{I}$ is the identity matrix, $\mathbg{\phi}$ is the angle of rotation, and $\mathbf{K}$ is the skew-symmetric matrix formed from the axis of rotation.
+
+The skew-symmetric matrix $\mathbf{K}$ can be expressed as:
+
 $$
 \mathbf{K} = \begin{bmatrix}
 0 & -\theta_z & \theta_y \\
