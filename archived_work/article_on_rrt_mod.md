@@ -5,6 +5,10 @@
 
 In the realm of autonomous navigation, the challenge of efficiently and safely planning a path in complex environments is paramount. The project I undertook, involving the development of an enhanced Rapidly-exploring Random Tree (RRT) algorithm with a novel steering function, stands as a testament to the application of mechanical engineering principles, mathematical rigor, and innovative algorithm design. This endeavor not only showcases my capability to innovate within the field of autonomous navigation but also integrates sophisticated collision detection logic to ensure path feasibility and safety.
 
+![RRT Steering](rrt_steering.png)
+
+**Figure 1.** This figure depicts a representative plot showcasing the results of the enhanced Rapidly-exploring Random Tree (RRT) algorithm with the 3D steering function. This visualization encapsulates the algorithm's afficiency in navigating complex environments while ensuring path feasibility and safety.
+
 ## Core Algorithm Components
 
 ### State Representation and Steering Mechanism
