@@ -9,10 +9,10 @@ In the realm of autonomous navigation, the challenge of efficiently and safely p
 
 ### State Representation and Steering Mechanism
 
-At the heart of our algorithm is a refined state representation, incorporating both position $\((x, y, z)\)$ and orientation $\((	heta_x, 	heta_y, 	heta_z)\)$ components. The orientation is crucial for navigating through three-dimensional spaces, allowing for rotational movement about multiple axes. The steering function, drawing inspiration from Rodrigues' rotation formula, adeptly calculates new orientations, facilitating smooth and precise directional control.
+At the heart of our algorithm is a refined state representation, incorporating both position $\((x, y, z)\)$ and orientation $\(	\theta_x, 	\theta_y, 	\theta_z)\$ components. The orientation is crucial for navigating through three-dimensional spaces, allowing for rotational movement about multiple axes. The steering function, drawing inspiration from Rodrigues' rotation formula, adeptly calculates new orientations, facilitating smooth and precise directional control.
 
 The Rodrigues' rotation formula is defined as:
-$\[R = I + \sin(\phi)K + (1 - \cos(\phi))K^2\]$
+$\R = I + \sin(\phi)K + (1 - \cos(\phi))K^2\$
 where $\(R\)$ is the rotation matrix, $\(I\)$ is the identity matrix, $\(\phi\)$ is the angle of rotation, and $\(K\)$ is the skew-symmetric matrix formed from the axis of rotation.
 
 ### Forward Integration Process
