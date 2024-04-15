@@ -136,3 +136,6 @@ The reason I consider the autonomous quadcopter’s waypoint tracking behavior m
 I’ve done quite a bit of work up to this point. Open-ended problem statement. Obstacle data. Mathematical formulation of the problem. Finite state machine. Understand where my solution will fit in the context of the bigger picture. I feel this work is probably enough to begin building out a solution. In preparation for building out of the solution, I take one last step, and that is summarizing the problem clearly and concisely. 
 
 What I come up with is as follows: given a map of static obstacles, having obstacles being represented as boxes in R3, and flight computer code modeled according to the principle of finite state machines, develop a path planning solution for the planning mode of the finite state machine that produces a path that is reasonable in the sense that it is collision-free, near-shortest distance, fewer waypoints is probably better than others, and where the algorithms that I produce to produce the paths are designed with computational efficiency in mind. 
+
+# A Note to My Reader
+The written content above is an excerpt from the written documentation for this project that I am currently working on. I suggest my reader access that documentation directly:  https://shorturl.at/mtLQZ.
